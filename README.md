@@ -1,0 +1,10 @@
+# Texto HTTP
+
+O Browser do cliente etabelece uma conexão TCP com o programa de "server HTTP" do servidor da Netshoes (desconsiderando firewalls, reverse proxies, load balancers e o processo de descobrimento de endereço IP por DNS). 
+Após a conexão TCP ser realizada com sucesso entre o computador do cliente e o do servidor da Netshoes, as mensagens HTTP poderão ser transferidas por meio desta com todas as garantias que o protocolo TCP oferece (garatia na entrega de mensagens, por exemplo. [Que é alcaçada utilizando-se mensagens TCP de ACKNOWLEDGMENT para verificar se as mensagens estão sendo realmente recebidas].
+
+Como o cliente deseja acessar a página inicial ('/') da Netshoes, o Browser do cliente enviará uma mensagem HTTP do tipo GET buscando a página na URL raiz '/'. Meta-informações adicionais também são enviadas pelo Browser na mensagem HTTP, essas meta-informações são chamadas Headers HTTP e são normalmente utilizadas para identificar o cliente (através de cookies) e para obter informações sobre o dispositivo no qual o cliente está utilizando para acessar o site da Netshoes (se é dispositivel móvel ou desktop e o sistema operacional do mesmo).
+
+Após receber a requisição do cliente, o programa de "server HTTP" do servidor da netshoes irá verificar se na URL da requisição enviada pelo cliente existe algum conteúdo disponível para ser acessado por ele. No caso do nosso exemplo o programa de Server HTTP irá verificar se existe uma página "padrão" de nome index.html no endereço raiz dos arquivos gerenciados por este servidor. Caso afirmativo o programa de Server HTTP irá obter este arquivo(index.html) do Sistema de Arquivos do Sistemas Operacional do servidor e irá enviá-lo em uma mensagem HTTP de resposta por meio da conexão TCP criada anteriormente com o cliente. Caso negativo o programa de Server HTTP irá enviar uma mensagem HTTP de resposta informando que o conteúdo buscado por aquela URL não está disponível (no caso o código da mensagem HTTP seria 404) e enviará provavelmente uma página de err.
+
+Ao receber a resposta do servidor da Netshoes, o Browser do cliente irá examinar a mensagem HTTP recebida. Caso  
